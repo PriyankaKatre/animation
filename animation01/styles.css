@@ -1,0 +1,84 @@
+body {
+  overflow: hidden;  
+  background-image:url('https://media.istockphoto.com/id/517675056/photo/children-in-a-treehouse-with-boy-climbing-up-rope-ladder.jpg?s=612x612&w=0&k=20&c=rPs6RcnyxjewR4guo9xps8IuO3SyTnDHm7ODu--2feU=');
+  background-size: cover; 
+  background-position: 0px;
+  animation: moveBG 5s linear infinite;
+  position: relative;
+  height: 100vh;
+}
+
+.car {
+  width: 200px;
+  height: 200px;
+  background-image:url('https://c8.alamy.com/comp/J2YYTW/a-lateral-view-of-a-red-body-car-J2YYTW.jpg');
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  background-clip: 50%;
+  position: absolute;
+  bottom: -10px;  
+  right: 0px;
+  object-position: top; 
+  animation: moveCar 5s linear infinite;
+  background-color: transparent;
+}
+
+.wheel {
+  width: 35px;
+  height: 35px;
+  background-color: #000;
+  border-radius: 50%;
+}
+.right{
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  animation: rotateWheel 5s linear infinite
+}
+.left{
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  animation: rotateWheel 5s linear infinite
+}
+
+.spike {
+  position: absolute;
+  left:4px;
+  top: 3px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px dotted red;  
+}
+
+@keyframes rotateWheel {
+  0%{
+    transform: rotate(0deg)
+  }
+  100%{
+    transform: rotate(360deg)
+  }
+}
+
+
+@keyframes moveCar {
+  0% {
+    right: -10%
+  }
+  80% {
+    right: 80%;
+  }
+  100% {
+    right:100%
+  }
+}
+@keyframes moveBG {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: 1000px
+  }
+}
+
