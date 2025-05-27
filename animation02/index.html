@@ -1,25 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Marquee-like Animation</title>
+    <style>
+        .wrapper3 {
+            height: 100vh;
+            background-color: rgb(119, 177, 31);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .loop-slider {
+            display: flex;
+            position: relative;
+        }
+        .inner {
+            display: flex;
+            position: absolute;
+            animation: scroll 20s linear infinite;
+        }
+        .tag {
+            width: 200px;
+            background-color: lightcoral;
+            margin-right: 20px;
+            padding: 10px;
+            white-space: nowrap;
+        }
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="wrapper1">
-   <div class='item1'>
+    <div class="wrapper3">
+        <div class="loop-slider">
+            <div class="inner">
+                <div class="tag">Interview Questions</div>
+                <div class="tag">Redux</div>
+                <div class="tag">Express.js</div>
+                <div class="tag">Conditional Rendering</div>
+                <div class="tag">Config Drive UI</div>
+                <div class="tag">Handling Events</div>
+                <div class="tag">Pure Components</div>
+                <div class="tag">React Router</div>
+                <div class="tag">RESTful APIs</div>
+                <div class="tag">Modules</div>
+                <div class="tag">Interview Questions</div>
+                <div class="tag">Redux</div>
+                <div class="tag">Express.js</div>
+                <div class="tag">Conditional Rendering</div>
+                <div class="tag">Config Drive UI</div>
+                <div class="tag">Handling Events</div>
+                <div class="tag">Pure Components</div>
+                <div class="tag">React Router</div>
+                <div class="tag">RESTful APIs</div>
+                <div class="tag">Modules</div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="wrapper2">
-   <div class='item2'>
-    </div>
-  </div>
-  <div class="wrapper3">
-   <div class='item3'>
-    </div>
-  </div>
-  <script src="index.js"></script>
+
+    <script>
+        const inner = document.querySelector('.inner');
+        const loopSlider = document.querySelector('.loop-slider');
+
+        function updateMarquee() {
+            const contentWidth = inner.offsetWidth;
+            const containerWidth = loopSlider.offsetWidth;
+            const translateValue = -((contentWidth / containerWidth) * 100);
+            inner.style.animation = `scroll 20s linear infinite`;
+            inner.style.transform = `translateX(${translateValue}%)`;
+        }
+
+        window.addEventListener('resize', updateMarquee);
+        updateMarquee();
+    </script>
 </body>
 </html>

@@ -13,38 +13,68 @@
 }
 .wrapper2 {
     height: 100vh;
-    background-color: rgb(54, 51, 48);
+    background-color: rgb(211, 130, 48);
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    flex-direction: column;
+    gap: 20px;    
 }
-.item2 {
-    width: 100px;
-    height: 100px;
-    background-color: rgb(76, 24, 160);
+
+p:first-child {
+    background-color: aqua;
 }
+p:last-child {
+    position: relative;
+    background-color: rgb(94, 255, 0);
+}
+ 
 .wrapper3 {
     height: 100vh;
-    background-color: rgb(119, 177, 31);
+    background-color: rgb(119, 177, 31);    
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
-.item3{
-    width: 100px;
-    height: 100px;
-    background-color: rgb(188, 27, 113);
+ul{
+    display: flex;
+    animation: paraAnimateLeft 20s ease infinite;
+    width: max-content; 
+}
+li {
+    width: 200px;
+    background-color: lightcoral;
+    margin-right: 20px;
 }
 
 @keyframes moveItem {
     0%{
-        scale: 0%
+        scale: 0%;
+        rotate: 0deg
     }
-    50%{
-        scale:50%
+
+    100%{
+        scale:100%;
+        rotate: 360deg
+    }
+}
+
+@keyframes paraAnimateLeft {    
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+@keyframes paraAnimateRight {
+    0%{
+        transform: translateX(-500px)
     }
     100%{
-        scale:100%
+
+        transform: translateX(0%);
     }
 }
