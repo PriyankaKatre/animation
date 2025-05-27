@@ -111,7 +111,38 @@ video {
     animation-direction: alternate;
     animation-iteration-count: infinite;
 }
+.page2{
+    position: relative;
+    padding-top: 8vw;
+    width: 100%;
+    height: 120vh;
+    background-color: #EFEAE3;
+}
+.moving-line {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+.moving-line::-webkit-scrollbar {
+    display: none;
+}
 
+.con{
+    white-space: nowrap;
+    display: inline-block;
+    animation: move 10s linear infinite;
+}
+.con h1 {
+    font-size: 9vw;
+    display: inline-block;
+}
+.gola {
+    width: 30px;
+    height: 30px;
+    background-color: #fe3116;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 1vw 2vw;
+}
 
 @keyframes anime1 {
     from{
@@ -119,5 +150,14 @@ video {
     }
     to{
         transform: translate(33%,-10%);
+    }
+}
+
+@keyframes move {
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translate(-100%);
     }
 }

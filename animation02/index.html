@@ -5,35 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Continuous Marquee-like Animation</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
         .wrapper3 {
             height: 100vh;
             background-color: rgb(119, 177, 31);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
         }
-        .loop-slider {
+        .loop-slider, .loop-slider2 {
             display: flex;
             position: relative;
+            overflow-x: scroll;
+        }
+        .loop-slider::-webkit-scrollbar, .loop-slider2::-webkit-scrollbar {
+            display: none
         }
         .inner {
             display: flex;
-            position: absolute;
-            animation: scroll 20s linear infinite;
+            animation: scroll 10s linear infinite;
+            padding: 10px;
+
         }
         .tag {
-            width: 200px;
-            background-color: lightcoral;
             margin-right: 20px;
             padding: 10px;
-            white-space: nowrap;
+            font-size: 5vw ;
+            white-space: nowrap;       
+        }
+        .loop-slider2 .inner {
+            animation: scroll2 10s linear infinite;
         }
         @keyframes scroll {
-            0% {
-                transform: translateX(100%);
+            from {
+                transform: translateX(-100%);
             }
-            100% {
+            to{
+                transform: translateX(0);
+            }
+        }
+         @keyframes scroll2 {
+            from {
+                transform: translateX(0);
+            }
+            to{
                 transform: translateX(-100%);
             }
         }
@@ -47,40 +62,40 @@
                 <div class="tag">Redux</div>
                 <div class="tag">Express.js</div>
                 <div class="tag">Conditional Rendering</div>
-                <div class="tag">Config Drive UI</div>
-                <div class="tag">Handling Events</div>
-                <div class="tag">Pure Components</div>
-                <div class="tag">React Router</div>
-                <div class="tag">RESTful APIs</div>
-                <div class="tag">Modules</div>
+            </div>
+            <div class="inner">
                 <div class="tag">Interview Questions</div>
                 <div class="tag">Redux</div>
                 <div class="tag">Express.js</div>
                 <div class="tag">Conditional Rendering</div>
-                <div class="tag">Config Drive UI</div>
-                <div class="tag">Handling Events</div>
-                <div class="tag">Pure Components</div>
-                <div class="tag">React Router</div>
-                <div class="tag">RESTful APIs</div>
-                <div class="tag">Modules</div>
+            </div>
+            <div class="inner">
+                <div class="tag">Interview Questions</div>
+                <div class="tag">Redux</div>
+                <div class="tag">Express.js</div>
+                <div class="tag">Conditional Rendering</div>
+            </div>
+        </div>
+        <div class="loop-slider2">
+            <div class="inner">
+                <div class="tag">Interview Questions</div>
+                <div class="tag">Redux</div>
+                <div class="tag">Express.js</div>
+                <div class="tag">Conditional Rendering</div>
+            </div>
+            <div class="inner">
+                <div class="tag">Interview Questions</div>
+                <div class="tag">Redux</div>
+                <div class="tag">Express.js</div>
+                <div class="tag">Conditional Rendering</div>
+            </div>
+            <div class="inner">
+                <div class="tag">Interview Questions</div>
+                <div class="tag">Redux</div>
+                <div class="tag">Express.js</div>
+                <div class="tag">Conditional Rendering</div>
             </div>
         </div>
     </div>
-
-    <script>
-        const inner = document.querySelector('.inner');
-        const loopSlider = document.querySelector('.loop-slider');
-
-        function updateMarquee() {
-            const contentWidth = inner.offsetWidth;
-            const containerWidth = loopSlider.offsetWidth;
-            const translateValue = -((contentWidth / containerWidth) * 100);
-            inner.style.animation = `scroll 20s linear infinite`;
-            inner.style.transform = `translateX(${translateValue}%)`;
-        }
-
-        window.addEventListener('resize', updateMarquee);
-        updateMarquee();
-    </script>
 </body>
 </html>
