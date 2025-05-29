@@ -1,28 +1,25 @@
-import React, { useState } from 'react'
-
+import React, { Suspense, useState } from 'react'
+import Counter from './components/counter'
+import UseApiCall from './components/useApiCall'
 
 
 function App() {
   const [count, setCount] = useState(0)
+  const [user, setUser] = useState([])
+   const fetchData = async function() {
+      const res = await fetch('https://dummyjson.com/users')
+      const data = await res.json();
+      return data;
+    } 
+
+    const userData = fetchData()
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <div >
-        <div data-testid='counter-value'>count is {count}</div>
-        <button onClick={() => setCount((count) => count + 1)}>
-          increment
-        </button>
-        <button onClick={() => setCount((count) => count - 1)}>
-         decrement
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p >
-        Click on the Vite and React logos to learn more
-      </p>
+     {/* <Counter /> */}
+     <Suspense fallback={<p>waiting for message...</p>}>
+      <UseApiCall user={userData}/>
+     </Suspense>     
     </>
   )
 }

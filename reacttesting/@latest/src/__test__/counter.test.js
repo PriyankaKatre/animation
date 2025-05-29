@@ -1,15 +1,12 @@
 
 import React from 'react';
-import App from "./App";
+import Counter from '../components/counter';
 import {fireEvent, render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom'
 
 describe('check counter', () =>{
     beforeEach(() =>{
-         render(<App />);
-    })
-    it('check if Vite + React', () =>{       
-        expect(screen.getByText('Vite + React')).toBeInTheDocument();
+         render(<Counter />);
     })
     it('test if count is 0', () =>{
         expect(screen.getByTestId('counter-value').textContent).toBe('count is 0')
