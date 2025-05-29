@@ -1,6 +1,7 @@
 import React, { Suspense, useState } from 'react'
 import Counter from './components/counter'
 import UseApiCall from './components/useApiCall'
+import ApiCall from './components/apiCall'
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
 
   return (
     <>
-     {/* <Counter /> */}
+     <Counter />
+     <ApiCall />
      <Suspense fallback={<p>waiting for message...</p>}>
       <UseApiCall user={userData}/>
      </Suspense>     

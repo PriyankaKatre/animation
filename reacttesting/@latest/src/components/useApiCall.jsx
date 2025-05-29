@@ -2,7 +2,6 @@ import React, { use } from 'react';
 
 const UseApiCall = ({user}) =>{
     const userRes =  use(user)
-    console.log('response', userRes.users)
 
     return (
         <>
