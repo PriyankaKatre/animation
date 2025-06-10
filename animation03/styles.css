@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: 'Neue Haas Display';
     src: url('https://sundown-ivory.vercel.app/NeueHaasDisplay-Roman.ttf') format('truetype');
@@ -253,7 +255,61 @@ video {
     opacity: 1;
     transition: all .5s ease-in;
 }
+#footer {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    color: #EFEAE3;
+    bottom: 0%;
+    z-index: -1;
+}
+#footer #shape1 {
+    position: absolute;
+    background-color: #fe330a;
+    filter: blur(50px);
+    top: -50%;
+    left: -20%;
+    width: 90%;
+    height: 90%;
+    animation-name: shape1;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#footer #shape2 {
+    position: absolute;
+    background-color: #fe330a;
+    filter: blur(50px);
+    right: -27%;
+    top: -27%;
+    width: 70%;
+    height: 90%;
+    animation-name: shape2;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
 
+#footerupper {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6.2vw 5.7vw;
+}
+#email {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    width: 26%;
+}
+#footerlower {
+    position: relative;
+    padding: 0 1.5vw;
+}
 @keyframes anime1 {
     from{
         transform: translate(-5%,20%);

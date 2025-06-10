@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>    
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+</head>
+<body>
+    <div class='text'>Exclusive offer!
+    </div>
+    <button>Click</button>
+    <script src="index.js" />
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 Banner with GSAP & D3.js</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.4/d3.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+    .banner {
+      position: relative;
+      width: 300px;
+      height: 250px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      padding: 20px;
+      text-align: center;
+    }
+    .banner-text {
+      font-size: 20px;
+      font-weight: bold;
+      opacity: 0;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #ff5722;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    .svg-container {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    <div class="banner-text">Exclusive Offer! 🚀</div>
+    <button class="cta-button">Grab Now</button>
+    <div class="svg-container"></div>
+  </div>
+
+  <script>
+    // GSAP Animations
+    gsap.to(".banner-text", {
+      opacity: 1,
+      y: -10,
+      duration: 1,
+      ease: "power3.out"
+    });
+
+    gsap.to(".cta-button", {
+      opacity: 1,
+      scale: 1,
+      duration: 0.7,
+      ease: "elastic.out(1, 0.3)",
+      delay: 0.5
+    });
+
+    gsap.to(".cta-button", {
+      scale: 1.1,
+      duration: 0.6,
+      repeat: -1,
+      yoyo: true
+    });
+
+    // D3.js Animated Circle
+    const svg = d3.select(".svg-container")
+      .append("svg")
+      .attr("width", 100)
+      .attr("height", 100);
+
+    svg.append("circle")
+      .attr("cx", 50)
+      .attr("cy", 50)
+      .attr("r", 20)
+      .style("fill", "#ff5722")
+      .transition()
+      .duration(1000)
+      .attr("r", 30)
+      .style("fill", "#2196F3");
+  </script>
+
+</body>
+</html>

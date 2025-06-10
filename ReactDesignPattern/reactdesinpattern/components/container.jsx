@@ -18,9 +18,9 @@ label: PropTypes.string.isRequired,
 
 }
 
-const Counter =({count})=>{
+const Counter =({count, specialProps})=>{
     return(
-        <div className='m-5' onClick={()=>clickHandler()}>{count}</div>
+        <div className='m-5' onClick={()=>clickHandler()}>{count}{specialProps}</div>
     )
 }
 
@@ -33,7 +33,7 @@ const withHOC = (Counter) =>{
         return (
             <div>
                 <h3>Counter from hoc</h3>
-                <Counter {...props}/>
+                <Counter {...props} specialProps='*'/>
             </div>
         )
     }
