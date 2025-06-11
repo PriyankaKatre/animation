@@ -55,10 +55,10 @@ nav{
 .nav-item h4:hover::after {
     bottom: 0;
     border-radius: 0;
-    color: #fff;
+    color: red;
 }
 .nav-item h4:hover a {
-    color: #fff;
+    color: #77cf12;
 }
 .nav-item h4 a {
     text-decoration: none;
